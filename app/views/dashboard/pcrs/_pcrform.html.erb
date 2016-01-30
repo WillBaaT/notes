@@ -3,13 +3,13 @@
 	        <%= pf.label :product_size,"Size" %>
     	    <%= pf.text_field :product_size, :placeholder => "bp" %><br><br>
     	    <div class="primer">
-	    	    	<%= pf.fields_for :forprimer do |prif|%>
-				        <%= prif.label :primer_label,"Forward primer" %> 
-		    		    <%= prif.text_field :primer_label %><br><br>
+	    	    	<%= pf.fields_for :for_primer do |prif|%>
+				        <%= prif.label :for_primer_label,"Forward primer" %> 
+		    		    <%= prif.text_field :for_primer_label %><br><br>
 		    		<%end%>
-		    		<%= pf.fields_for :revprimer do |prif|%>
-				        <%= prif.label :primer_label,"Reverse primer" %> 
-		    		    <%= prif.text_field :primer_label %><br><br><br>
+		    		<%= pf.fields_for :rev_primer do |prif|%>
+				        <%= prif.label :rev_primer_label,"Reverse primer" %> 
+		    		    <%= prif.text_field :rev_primer_label %><br><br><br>
 		    		<%end%>
 	    		</div>
     	    <%= pf.label :final_vector %>
@@ -18,9 +18,9 @@
 </div>
 <div id = "pcr" class="stepback">
     <h2>PCR condition</h2><br>
+    		<%= pf.label :enzyme,"Polymerase" %>
+	        <%= pf.text_field :enzyme %><br><br>
     		<%= pf.fields_for :pcr_conditions do |pcf|%>
-	    	<%= pcf.label :enzyme,"Polymerase" %>
-	        <%= pcf.text_field :enzyme %><br><br>
 	    	<%= pcf.label :machine %> 
 	        <%= pcf.text_field :machine %><br><br>
 	<div class="temp">

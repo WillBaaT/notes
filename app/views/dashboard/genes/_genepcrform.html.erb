@@ -1,7 +1,6 @@
 <div class="stepback">
    	<h2>Fragment for <%= @gene.gene_name %></h2><br>
    		<% @gene.pcr.build %>
-   		<% @gene.forprimer.build %>
 	    <%= gf.fields_for :pcr do |pf|%>	
 	    	<%= render :partial => 'dashboard/pcrs/pcrform', :locals => { :pf => pf } %>
 	    <%end%>

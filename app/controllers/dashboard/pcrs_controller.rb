@@ -20,6 +20,9 @@ class Dashboard::PcrsController < Dashboard::DashboardController
   def show
   	@gene = Gene.find(params[:gene_id])
     @pcr = Pcr.find(params[:id])
+    @for = @pcr.for_primer
+    @rev = @pcr.rev_primer
+    @condition = @pcr.pcr_condition
     # @forprimer = Forprimer.find(params[:id])
 
   end

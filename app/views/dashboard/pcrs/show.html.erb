@@ -15,10 +15,10 @@
 					<div class="detail">
 						<span class="label">Fragment: </span><span><%=@pcr.fragment_name%></span><br>
 						<span class="label">Size: </span><span><%=@pcr.product_size%><%=" bp" unless @pcr.product_size.nil?%></span><br>
-						<span class="label">Forward: </span><span><%=@pcr.forprimer.primer_label%></span><br>
+						
 						<span class="label">reverse: </span><span><%=@pcr.enzyme%></span><br>
 						<span class="label">Polymerase: </span><span><%=@pcr.enzyme%></span><br>
-						<span class="label">Machine: </span><span><%=@pcr.machine%></span><br><br>
+						<span class="label">Machine: </span><span><%=@condition.machine%></span><br><br>
 						<span><%=@pcr.break%> °C <%=@pcr.break_t%> min</span><br>
 						<br>
 						<span><%=@pcr.denature%> °C <%=@pcr.denature_t%> min</span><br>

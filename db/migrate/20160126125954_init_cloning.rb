@@ -10,8 +10,6 @@ class InitCloning < ActiveRecord::Migration
     end
     create_table :pcrs do |t|
       t.integer :gene_id, :null => false
-      t.integer :forprimer_id 
-      t.integer :revprimer_id
       t.string :fragment_name
       t.string :product_size
       t.string :final_vector
@@ -21,7 +19,7 @@ class InitCloning < ActiveRecord::Migration
     add_index :pcrs, [:gene_id]
     create_table :pcr_conditions do |t|
       t.integer :usable_id
-      t.string :usable_type  
+      t.string :usable_type
       t.string :machine
       t.integer :break
       t.integer :break_t
@@ -36,18 +34,23 @@ class InitCloning < ActiveRecord::Migration
       t.integer :cycles
       t.timestamps :null => false
     end
-    create_table :pcr_primers do |t|
-      t.integer :pcr_id, :null => false
-      t.integer :primer_id, :null => false
+    create_table :for_primers do |t|
+      t.integer :pcr_id
+      t.string :for_primer_label
+      t.float :for_tm
+      t.string :for_sequence
+      t.string :for_restrict_site
     end
-    create_table :primers do |t|
-      t.integer :gene_id, :null => false
-      t.string :type
-      t.string :primer_label
-      t.float :tm
-      t.string :restrict_site
-      t.string :sequence
-      t.timestamps :null => false
+    create_table :rev_primers do |t|
+      t.integer :pcr_id
+      t.string :rev_primer_label
+      t.float :rev_tm
+      t.string :rev_sequence
+      t.string :rev_restrict_site
+    end
+    create_table :primer_pairs do |t|
+      t.integer :for_primer_id, :null => false
+      t.integer :rev_primer_id, :null => false
     end
     create_table :colonypcrs do |t|
       t.integer :pcr_id, :null => false

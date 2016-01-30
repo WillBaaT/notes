@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20160127153822) do
     t.integer "revprimer_id", limit: 4, null: false
   end
 
+  create_table "for_primers", force: :cascade do |t|
+    t.integer "pcr_id",            limit: 4
+    t.string  "for_primer_label",  limit: 255
+    t.float   "for_tm",            limit: 24
+    t.string  "for_sequence",      limit: 255
+    t.string  "for_restrict_site", limit: 255
+  end
+
   create_table "geeks", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
@@ -93,15 +101,8 @@ ActiveRecord::Schema.define(version: 20160127153822) do
     t.datetime "updated_at",               null: false
   end
 
-  create_table "pcr_primers", force: :cascade do |t|
-    t.integer "pcr_id",    limit: 4, null: false
-    t.integer "primer_id", limit: 4, null: false
-  end
-
   create_table "pcrs", force: :cascade do |t|
     t.integer  "gene_id",          limit: 4,   null: false
-    t.integer  "forprimer_id",     limit: 4
-    t.integer  "revprimer_id",     limit: 4
     t.string   "fragment_name",    limit: 255
     t.string   "product_size",     limit: 255
     t.string   "final_vector",     limit: 255
@@ -121,15 +122,17 @@ ActiveRecord::Schema.define(version: 20160127153822) do
     t.text    "content", limit: 65535
   end
 
-  create_table "primers", force: :cascade do |t|
-    t.integer  "gene_id",       limit: 4,   null: false
-    t.string   "type",          limit: 255
-    t.string   "primer_label",  limit: 255
-    t.float    "tm",            limit: 24
-    t.string   "restrict_site", limit: 255
-    t.string   "sequence",      limit: 255
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+  create_table "primer_pairs", force: :cascade do |t|
+    t.integer "for_primer_id", limit: 4, null: false
+    t.integer "rev_primer_id", limit: 4, null: false
+  end
+
+  create_table "rev_primers", force: :cascade do |t|
+    t.integer "pcr_id",            limit: 4
+    t.string  "rev_primer_label",  limit: 255
+    t.float   "rev_tm",            limit: 24
+    t.string  "rev_sequence",      limit: 255
+    t.string  "rev_restrict_site", limit: 255
   end
 
   create_table "transformations", force: :cascade do |t|
