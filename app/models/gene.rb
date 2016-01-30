@@ -2,7 +2,7 @@ class Gene <ActiveRecord::Base
   has_many :pcr
   accepts_nested_attributes_for :pcr, :allow_destroy => true, :reject_if => :all_blank
 
-before_save :check_gene_name_upcase
+  before_save :check_gene_name_upcase
 
   private
   

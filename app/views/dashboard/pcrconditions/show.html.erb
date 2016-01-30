@@ -21,8 +21,7 @@
 						<span><%=@pcr.created_at.strftime("%H:%M %D")%></span>
 						<div class="edit">
 						<%= link_to "EDIT", edit_dashboard_gene_pcr_path(@pcr.gene, @pcr)%>
-						<%= link_to "CONDITION", new_dashboard_pcr_pcrcondition_path(@pcr) %>
-						<%= link_to "DELETE", dashboard_gene_pcr_path(@pcr.gene, @pcr.gene), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+						<%= link_to "DELETE", dashboard_pcr_path(@pcr.gene, @pcr.gene), :method => :delete, :data => { :confirm => "Are you sure?" } %>
 						<%= link_to "BACK", dashboard_genes_path %><br><br>	<br><br>
 						</div>
 					</div>

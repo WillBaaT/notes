@@ -9,7 +9,7 @@
 				<header class="clearfix">
 					<h1 class="title-current">Fragment Cloning</h1>
 				</header>
-				<%= form_for [@gene, @pcr], {:url => dashboard_gene_pcr_path, :method => "patch"} do |pf| %>
+				<%= form_for [@gene, @pcr] do |pf| %>
 					<%= render :partial => 'pcrpcrform', :locals => { :pf => pf } %>
 					<%= pf.submit "Submit", :class => "submit" %>
 					

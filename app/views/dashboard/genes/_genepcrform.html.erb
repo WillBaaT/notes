@@ -1,5 +1,5 @@
 <div class="stepback">
-   	<h2>Fragment for <%= @gene.gene_name %></h2><br>
+   	<h2><%= @gene.gene_name %> Fragment</h2><br>
    		<% @gene.pcr.build %>
 	    <%= gf.fields_for :pcr do |pf|%>	
 	    	<%= render :partial => 'dashboard/pcrs/pcrform', :locals => { :pf => pf } %>

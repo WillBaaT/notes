@@ -1,53 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>CHYLab - Experimental Note</title>
+  <title>CHYLab - Experimental Note</title>
 </head>
 <body>
-	<div class="container">
-		<div  id="tabs" class="tabs">
-			<header class="clearfix">
-				<h1 class="title-current">Gene informations</h1>
-			</header>
-			<div class="content">
-				<div class="geneshow">
-					<h2><%= @gene.gene_name %></h2>
-					
-					<div class="genedetail">
-						<span class="label">Species:</span><span> <%=@gene.species%></span><br>
-						<span  class="label">ID:</span><span> <%=@gene.number%></span><br>
-						<span  class="label">Size:</span><span> <%=@gene.size%> <%= " bp " unless @gene.size.nil? %></span><br>
-
-					</div>
-					<div>
-						<% if @gene.sequence %>
-							<% @gene.sequence.sub("\n\r","")%><br>
-							<% a = @gene.sequence.gsub(/\s+/,'')%><br>
-						
-						<svg width="<%=a.length/5%>" height="50px">
-						<line x1="0" y1="10" x2="<%=a.length/5%>" y2="10" style="stroke:#599ab9;stroke-width:5" />
-						<%= b= a.scan(/[a-z][A-Z]+/)%>
-						<% b.each do |e|%>
-						<% ex=a.index(e) %>
-						<% b[0]%>
-						
-							<rect x="<%=ex/5%>" width="<%=e.length/5%>" height="20" style="fill:#599ab9;stroke-width:1" />
-						<%end%>
-						</svg>
-						<%else%>
-							<span>If you give me the sequence, I'll show you the graphic</span>
-						<%end%>
-					</div>
-					<div class="edit">
-						<%= link_to "EDIT", edit_dashboard_gene_path(@gene) %>
-						<%= link_to "BACK", dashboard_genes_path %>
-						<br><br>	<br><br>
-					</div>
-				</div>
-			</div>
-			<p><%= link_to 'Back to index', dashboard_genes_path %></p>
+  <div class="container">
+	<div  id="tabs" class="tabs">
+	  <header class="clearfix">
+		<h1 class="title-current">Gene <span>informations</span></h1>
+	  </header>
+	  <div class="content">
+		<div class="geneshow">
+		  <h2><%= @gene.gene_name %></h2>
+		  <div class="genedetail">
+			<span class="label">Species:</span><span> <%=@gene.species%></span><br>
+			<span  class="label">ID:</span><span> <%=@gene.number%></span><br>
+			<span  class="label">Size: <span><%=@gene.size%><%= " bp " unless @gene.size.nil? %></span></span><br>
+		  </div>
+		  <div>
+			<% if @gene.sequence.length>=1 %>
+			  <% @gene.sequence.sub("\n\r","")%>
+			  <% a = @gene.sequence.gsub(/\s+/,'')%>
+			  <svg width="300" height="50">
+			  <line x1="0" y1="10" x2="300" y2="10" style="stroke:#599ab9;stroke-width:5" />
+			  <%= b = a.scan(/[a-z][A-Z]+/)%>
+			  <% b.each do |e|%>
+			    <% ex = a.index(e) %>
+			    <% b[0]%>
+				<rect x="<%=ex*300/a.length%>" width="<%=e.length*300/a.length%>" height="20" style="fill:#599ab9;stroke-width:1" />
+		      <%end%>
+			  </svg>
+			<%else%>
+			  <span>If you give me the sequence, I'll show you the graphic</span>
+			<%end%>
+		  </div>
+		  <div class="edit">
+		    <%= link_to "EDIT", edit_dashboard_gene_path(@gene) %>
+		    <%= link_to "BACK", dashboard_genes_path %><br><br><br><br>
+		  </div>
 		</div>
+	  </div>
+	  <p><%= link_to 'Back to index', dashboard_genes_path %></p>
 	</div>
+  </div>
 </body>
 <style>
 	.gene, .pcr{
@@ -65,6 +60,11 @@
 		display:inline-block;
 		margin: 5px 20px;
 		width: 70%;
+	}
+	@media screen and (max-width: 32em) {
+	h1 span{
+	display: none;
+	}
 	}
 </style>
 </html>

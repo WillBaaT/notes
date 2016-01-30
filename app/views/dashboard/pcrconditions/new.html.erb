@@ -7,14 +7,15 @@
 		<div class="container">
 			<div id="tabs" class="tabs">
 				<header class="clearfix">
-					<h1 class="title-current">Fragment Cloning</h1>
+					<h1 class="title-current"><span>Fragment</span> Cloning</h1>
 				</header>
-				<%= form_for [@gene, @pcr], {:url => dashboard_gene_pcr_path, :method => "patch"} do |pf| %>
-					<%= render :partial => 'pcrpcrform', :locals => { :pf => pf } %>
+				<%= form_for @pcr, :url => dashboard_pcr_pcrconditions_path, :method => "post" do |pf| %>
+					<%= render :partial => 'pcr_condition', :locals => { :pf => pf } %>
+					<div class="pcrsubmit">
 					<%= pf.submit "Submit", :class => "submit" %>
+					</div>
 					
-					
-					<% @gene.errors.full_messages.each do |err| %>
+					<% @pcr.errors.full_messages.each do |err| %>
 						<ul id="erralert" style="list-style-type:disc"><li class="err"><%=err%></li></ul>
 					<%end%>
 					
@@ -24,7 +25,10 @@
 		</div>
 	</body>
 	<style>
-	
+	@media screen and (max-width: 32em) {
+	h1 span{
+	display: none;
+	}
 	</style>
 	<script>
 	$(document).ready(function(){

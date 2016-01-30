@@ -82,7 +82,8 @@ ActiveRecord::Schema.define(version: 20160127153822) do
 
   add_index "managers", ["email"], name: "index_managers_on_email", unique: true, using: :btree
 
-  create_table "pcr_conditions", force: :cascade do |t|
+  create_table "pcrconditions", force: :cascade do |t|
+    t.integer  "pcr_id",       limit: 4
     t.integer  "usable_id",    limit: 4
     t.string   "usable_type",  limit: 255
     t.string   "machine",      limit: 255

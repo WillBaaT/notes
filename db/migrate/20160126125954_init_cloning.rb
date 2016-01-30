@@ -17,7 +17,8 @@ class InitCloning < ActiveRecord::Migration
       t.timestamps :null => false
     end
     add_index :pcrs, [:gene_id]
-    create_table :pcr_conditions do |t|
+    create_table :pcrconditions do |t|
+      t.integer :pcr_id
       t.integer :usable_id
       t.string :usable_type
       t.string :machine

@@ -1,9 +1,4 @@
 class Dashboard::PcrsController < Dashboard::DashboardController
-
-
-
-
-
   def new
     @gene = Gene.find(params[:gene_id])
   end
@@ -17,24 +12,7 @@ class Dashboard::PcrsController < Dashboard::DashboardController
       render new_dashboard_gene_pcr_path(@gene)
     end
   end
-  def show
-  	@gene = Gene.find(params[:gene_id])
-    @pcr = Pcr.find(params[:id])
-    @for = @pcr.for_primer
-    @rev = @pcr.rev_primer
-    @condition = @pcr.pcr_condition
-    # @forprimer = Forprimer.find(params[:id])
-
-  end
-  def edit
-    @gene = Gene.find(params[:gene_id])
-    @pcr = Pcr.find(params[:id])
-  end
-  def update
-    @pcr = Pcr.find(params[:id])
-    @pcr.update(pcr_params)
-    redirect_to gene_pcr_path(@pcr.gene, @pcr)
-  end
+  
   def destroy
     @gene = Gene.find(params[:gene_id])
     @pcr = @gene.pcr.find(params[:id])
@@ -44,10 +22,19 @@ class Dashboard::PcrsController < Dashboard::DashboardController
     end
     redirect_to dashboard_genes_path
   end
-  
-def reload
-    render new_pcr_path
+  def show
+    @pcr = Pcr.find(params[:id])
   end
+  def edit
+    @gene = Gene.find(params[:gene_id])
+    @pcr = Pcr.find(params[:id])
+  end
+  def update
+    @pcr = Pcr.find(params[:id])
+    @pcr.update(pcr_params)
+    redirect_to dashboard_gene_pcr_path(@pcr.gene, @pcr)
+  end
+
   private
   def pcr_params
       params.require(:pcr).permit(
@@ -84,13 +71,7 @@ def reload
         :polya,
         :polya_t,
         :cycles
-        ],
-      :primer_attributes=>[
-        :primer_label,
-        :tm,
-        :restrict_site,
-        :sequence
-      ]
+        ]
   )
   end
 end

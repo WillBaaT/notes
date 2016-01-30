@@ -7,11 +7,9 @@ class Dashboard::GenesController < Dashboard::DashboardController
   end
   def new
     @gene = Gene.new
-    @pcr = Pcr.new(:gene => @gene)
   end
   def create
     @gene = Gene.new(gene_params)
-    @pcr = Pcr.new(pcr_params)
     # if  Gene.find_by_gene_name(@gene.gene_name)
     #   @gene.pcrs.gene_id = Gene.find(Gene.find_by_gene_name(@gene.gene_name).id)
     #   end
@@ -53,49 +51,6 @@ class Dashboard::GenesController < Dashboard::DashboardController
         :final_vector,
         :machine,
         :enzyme,
-        ]
-    )
-  end
-  def pcr_params
-    params.require(:pcr).permit(
-      :id,
-      :gene_id,
-      :forprimer_id,
-      :revprimer_id,
-      :fragment_name, 
-      :product_size,
-      :final_vector,
-      :machine,
-      :enzyme,
-        :for_primer_attributes =>[
-          :id,
-          :for_primer_label,
-          :for_tm,
-          :for_restrict_site,
-          :for_sequence
-        ],
-        :rev_primer_attributes =>[
-          :id,
-          :rev_primer_label,
-          :rev_tm,
-          :rev_restrict_site,
-          :rev_sequence
-        ],
-        :pcr_condition_attributes => [
-        :usable_id,
-        :usable_type,
-        :machine,
-        :break,
-        :break_t,
-        :denature,
-        :denature_t,
-        :annealing,
-        :annealing_t,
-        :elongation,
-        :elongation_t,
-        :polya,
-        :polya_t,
-        :cycles
         ]
     )
   end
