@@ -10,7 +10,10 @@
 					<h1 class="title-current"><span>Fragment</span> Cloning</h1>
 				</header>
 				<%= form_for [@gene, @gene.pcr.build], :url => dashboard_gene_pcrs_path, :method => "post" do |pf| %>
-					<%= render :partial => 'pcrpcrform', :locals => { :pf => pf } %>
+					<div class="stepback">
+				   	<h2>Fragment for <%= @gene.gene_name %></h2><br>
+					    <%= render :partial => 'pcrform', :locals => { :pf => pf } %>
+					</div>
 					<div class="pcrsubmit">
 					<%= pf.submit "Submit", :class => "submit" %>
 					</div>
@@ -18,8 +21,6 @@
 					<% @gene.errors.full_messages.each do |err| %>
 						<ul id="erralert" style="list-style-type:disc"><li class="err"><%=err%></li></ul>
 					<%end%>
-					
-					
 				<%end%>
 			</div>
 		</div>

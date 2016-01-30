@@ -1,0 +1,49 @@
+<div id = "pcr" class="stepback">
+  <h2>Primers</h2>
+  <%= pf.fields_for :for_primer do |fpm|%>
+    <%= fpm.label :for_primer_label, "Forward" %>
+    <%= fpm.text_field :for_primer_label %><br><br>
+    <%= fpm.label :for_tm, "Tm" %>
+    <%= fpm.number_field :for_tm, in:40..60 %><br><br>
+    <%= fpm.label :for_sequence, "Sequence" %>
+    <%= fpm.text_field :for_sequence, :id => "forseq" %><br><br>
+    <%= fpm.label :for_restrict_site, "R.E. site" %>
+    <%=@pcr.for_primer.for_sequence%>
+    <%re=123%>
+    <%= fpm.text_field :for_restrict_site, :value=>re, :id => "forre" %><br><br>
+  <%end%>
+  <%= pf.fields_for :rev_primer do |rpm|%>
+    <%= rpm.label :rev_primer_label, "Reverse" %>
+    <%= rpm.text_field :rev_primer_label %><br><br>
+    <%= rpm.label :rev_tm, "Tm" %>
+    <%= rpm.number_field :rev_tm, in:40..60 %><br><br>
+    <%= rpm.label :rev_sequence, "Sequence" %>
+    <%= rpm.text_field :rev_sequence, :id => "revseq" %><br><br>
+    <%= rpm.label :rev_restrict_site, "R.E. site" %>
+    <%= rpm.text_field :rev_restrict_site, :id => "revre" %><br><br>
+  <%end%>
+  <h2>PCR condition</h2><br>
+  <%= pf.label :enzyme,"Polymerase" %>
+  <%= pf.text_field :enzyme %><br><br>
+
+  <%= pf.fields_for :pcr_conditions do |pcf|%>
+  <%= pcf.label :machine %> 
+  <%= pcf.text_field :machine %><br><br>
+<div class="temp">
+	        <%= pcf.number_field :break, :class => "short",					in:95..100%> °C
+	        <%= pcf.number_field :break_t, :class => "short",				in:1..15%> min<br><br>
+	        <%= pcf.number_field :denature, :class => "short",				in:95..100%> °C
+	        <%= pcf.number_field :denature_t, :class => "short",				in:1..3%> min<br>
+	        <%= pcf.number_field :annealing, :class => "short",				in:40..60%> °C
+	        <%= pcf.number_field :annealing_t, :class => "short",			in:1..3%> min<br>
+	        <%= pcf.number_field :elongation, :class => "short",				in:65..75%> °C
+	        <%= pcf.number_field :elongation_t, :class => "short",			in:1..10%> min<br><br>
+	        <%= pcf.number_field :polya, :class => "short",					in:65..75%> °C
+	        <%= pcf.number_field :polya_t, :class => "short",				in:1..10%> min<br><br>
+	        <div class="cycles">
+	        <%= pcf.number_field :cycles, :class => "short",	in:20..45%> Cycles
+	        </div>
+	        <%end%>
+
+	</div>
+</div>

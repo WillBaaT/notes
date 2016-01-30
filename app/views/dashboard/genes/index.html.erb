@@ -29,7 +29,7 @@
 						<span class="time"><%=p.created_at.strftime("%H:%M %D")%></span>
 						</div>
 						<div class="edit">
-						<%= link_to "DETAIL", dashboard_gene_pcr_path(p.gene, p)%>
+						<%= link_to "DETAIL", dashboard_pcr_path(p)%>
 						<%= link_to "DELETE", dashboard_gene_pcr_path(p.gene, p), :method => :delete, :data => { :confirm => "Are you sure?" } %>
 						<br><br>	<br><br>
 						</div>

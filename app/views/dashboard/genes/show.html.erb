@@ -18,7 +18,7 @@
 			<span  class="label">Size: <span><%=@gene.size%><%= " bp " unless @gene.size.nil? %></span></span><br>
 		  </div>
 		  <div>
-			<% if @gene.sequence.length>=1 %>
+			<% if @gene.sequence %>
 			  <% @gene.sequence.sub("\n\r","")%>
 			  <% a = @gene.sequence.gsub(/\s+/,'')%>
 			  <svg width="300" height="50">

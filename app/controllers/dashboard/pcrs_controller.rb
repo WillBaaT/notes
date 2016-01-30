@@ -26,9 +26,9 @@ class Dashboard::PcrsController < Dashboard::DashboardController
     @pcr = Pcr.find(params[:id])
   end
   def edit
-    @gene = Gene.find(params[:gene_id])
     @pcr = Pcr.find(params[:id])
   end
+  
   def update
     @pcr = Pcr.find(params[:id])
     @pcr.update(pcr_params)
@@ -45,17 +45,6 @@ class Dashboard::PcrsController < Dashboard::DashboardController
       :final_vector,
       :machine,
       :enzyme,
-      :break,
-      :break_t,
-      :denature,
-      :denature_t,
-      :annealing,
-      :annealing_t,
-      :elongation,
-      :elongation_t,
-      :polya,
-      :polya_t,
-      :cycles,
       :pcr_condition_attributes => [
         :usable_id,
         :usable_type,
@@ -71,7 +60,19 @@ class Dashboard::PcrsController < Dashboard::DashboardController
         :polya,
         :polya_t,
         :cycles
-        ]
+      ],
+      :for_primer_attributes => [
+        :for_primer_label,
+        :for_tm,
+        :for_sequence,
+        :for_restrict_site,
+      ],
+      :rev_primer_attributes => [
+        :rev_primer_label,
+        :rev_tm,
+        :rev_sequence,
+        :rev_restrict_site,
+      ]
   )
   end
 end

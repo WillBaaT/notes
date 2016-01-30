@@ -13,9 +13,8 @@ Rails.application.routes.draw do
     resources :genes do
       resources :pcrs
     end
-    resources :pcrs do
-      resources :pcrconditions
-    end
+    resources :pcrs
+    get "check" => "dashboard/pcrs#check"
     resources :ligations
     resources :transformations
     resources :colonypcrs
@@ -26,9 +25,7 @@ Rails.application.routes.draw do
       resources :genes do
         resources :pcrs
       end
-      resources :pcrs do
-        resources :pcrconditions
-      end
+      resources :pcrs
       resources :ligations
       resources :transformations
       resources :colonypcrs
