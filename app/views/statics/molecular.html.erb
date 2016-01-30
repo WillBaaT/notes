@@ -1,13 +1,283 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>CHY Lab</title>
 
-</head>
-<body>
-    <h1>Molecular</h1>
-    
-</body>
-<style>
-</style>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CHYLab - Experimental Note</title>
+	</head>
+	<body>
+	<div class="container">
+			<div id="tabs" class="tabs notetabs">
+				<header class="clearfix">
+					<h1 class="title-current"><span>Molecular</span> Cloning</h1>
+					<h1>Plant <span>Growing</span></h1>
+					<h1><span>Concentration</span> Caculator</h1>
+				</header>	
+				<nav>
+					<ul>
+						<li><a href="#section-1" class="icon-lab"><span>Cloning</span></a></li>
+						<li><a href="#section-2" class="icon-data"><span>Plant Growing</span></a></li>
+						<li><a href="#section-3" class="icon-bulb"><span>Caculator</span></a></li>
+					</ul>
+				</nav>
+				<div class="content">
+					<section id="section-1">
+						<div class="smallbtn">
+							<%= link_to dashboard_genes_path do %>
+							<div>
+							<%=image_tag("cloning/PCR1.svg",alt: "PCR")%>
+							</div>
+							<% end %>
+							<h3>PCR</h3>
+							<p>Input your gene name, primer name and other informations.</p>
+						</div>
+						<div class="smallbtn">
+							<%= link_to dashboard_ligations_path do %>
+							<div>
+							<%=image_tag("cloning/Ligation.svg",alt: "Ligation")%>
+							</div>
+							<% end %>
+							<h3>Ligation</h3>
+							<p>Choose your insert and vector to join them together.</p>
+						</div>
+						<div class="smallbtn">
+							<%= link_to "notes/transformation" do %>
+							<div>
+							<%=image_tag("cloning/Transformation.svg",alt: "Transformation")%>
+							</div>
+							<% end %>
+							<h3>Transformation</h3>
+							<p>Readme.</p>
+						</div>
+					</section>
+					<section id="section-2">
+  						<div class="smallbtn">
+							<div>
+							<%=image_tag("cloning/Transformation.svg",alt: "Transformation")%>
+							</div>
+							<h3>PCR</h3>
+							<p>Input your gene name, primer name and other informations.</p>
+						</div>
+						<div class="smallbtn">
+							<div>
+							<%=image_tag("cloning/Transformation.svg",alt: "Transformation")%>
+							</div>
+							<h3>Ligation</h3>
+							<p>Choose your insert and vector to join together.</p>
+						</div>
+						<div class="smallbtn">
+							<div>
+							<%=image_tag("cloning/Transformation.svg",alt: "Transformation")%>
+							</div>
+							<h3>Transformation</h3>
+							<p>Readme.</p>
+						</div>
+					</section>
+					<section id="section-3">
+						
+					</section>
+				</div><!-- /content -->
+			</div><!-- /tabs -->
+			<p class="info">2016/01/01 ver 1.0.0 Template by <a href="http://tympanus.net/codrops/" id>codrops</a><br><a href="https://www.facebook.com/groups/chylabfamily" class="icon-facebook-square">CHY family</a></p>
+		</div>
+		<style>
+@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
+@import url("font-awesome.min.css");
+h1 span{
+	font-size: 'Source Sans Pro', sans-serif !important;
+}
+.smallbtn {
+	float: left;
+	width: 33%;
+	padding: 0 25px;
+}
+
+.smallbtn div {
+	background-color: #599ab9;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+.smallbtn div img {
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.smallbtn h3 {
+	margin: 0.75em 0 0.5em;
+
+}
+
+.smallbtn p {
+	padding: 0 0 1em 0;
+	margin: 0;
+	line-height: 1.3;
+}
+
+
+/* Example media queries */
+@media screen and (max-width: 55em) {
+	.container > header h1,
+	.container > header nav {
+		float: none;
+	}
+	.container > header > span,
+	.container > header h1 {
+		text-align: center;
+	}	
+	.tabs nav a span {
+		display: none;
+	}
+	.tabs nav a:before {
+		margin-right: 0;
+	}
+
+	.smallbtn {
+		float: none;
+		width: auto;
+		padding: 0 0 35px 0;
+		font-size: 90%;
+	}
+
+
+	.smallbtn div {
+		float: left;
+		margin: 0 25px 10px 0;
+		max-width: 50%;
+	}
+	
+	.smallbtn h3 {
+		margin-top: 0;
+	}
+
+	.smallbtn p {
+		margin-left: 40%;
+		margin-left: calc(40% + 25px);
+	}
+
+	.smallbtn:before,
+	.smallbtn:after {
+		content: '';
+		display: table;
+	}
+
+	.smallbtn:after {
+		clear: both;
+	}
+}
+
+@media screen and (max-width: 32em) {
+	h1 span{
+	display: none;
+	}
+	.container > header{
+		padding: 1em 0;
+	}
+	.container > header h1 {
+	margin: 0;
+	}
+	.notetabs nav ul,
+	.notetabs nav ul li a {
+		width: 100%;
+		padding: 0;
+	}
+	.notetabs nav ul li {
+		width: calc(100%/3 + 1px);
+	}
+	.smallbtn {
+		float: left;
+		margin: auto;
+		max-width: 50%;
+		padding: 5px;
+		text-align: center;
+	}
+
+	.smallbtn div {
+		float: none;
+		margin: 0 auto;
+		max-width: 100%;
+	}
+
+	.smallbtn h3 {
+		margin: 1.25em 0 1em;
+		display:none;
+	}
+
+	.smallbtn p {
+		margin: 0;
+		display:none;
+	}
+}
+		</style>
+		<script>
+;( function( window ) {
+	
+	'use strict';
+
+	function extend( a, b ) {
+		for( var key in b ) { 
+			if( b.hasOwnProperty( key ) ) {
+				a[key] = b[key];
+			}
+		}
+		return a;
+	}
+
+	function CBPFWTabs( el, options ) {
+		this.el = el;
+		this.options = extend( {}, this.options );
+  		extend( this.options, options );
+  		this._init();
+	}
+
+	CBPFWTabs.prototype.options = {
+		start : 0
+	};
+
+	CBPFWTabs.prototype._init = function() {
+		this.titles = [].slice.call( this.el.querySelectorAll( 'header > h1' ) );
+
+		// tabs elemes
+		this.tabs = [].slice.call( this.el.querySelectorAll( 'nav > ul > li' ) );
+		// content items
+		this.items = [].slice.call( this.el.querySelectorAll( '.content > section' ) );
+		// current index
+		this.current = -1;
+		// show current content item
+		this._show();
+		// init events
+		this._initEvents();
+	};
+
+	CBPFWTabs.prototype._initEvents = function() {
+		var self = this;
+		this.tabs.forEach( function( tab, idx ) {
+			tab.addEventListener( 'click', function( ev ) {
+				ev.preventDefault();
+				self._show( idx );
+			} );
+		} );
+	};
+
+	CBPFWTabs.prototype._show = function( idx ) {
+		if( this.current >= 0 ) {
+			this.titles[ this.current ].className = '';
+			this.tabs[ this.current ].className = '';
+			this.items[ this.current ].className = '';
+		}
+		// change current
+		this.current = idx != undefined ? idx : this.options.start >= 0 && this.options.start < this.items.length ? this.options.start : 0;
+		this.titles[ this.current ].className = 'title-current';
+		this.tabs[ this.current ].className = 'tab-current';
+		this.items[ this.current ].className = 'content-current';
+	};
+	// add to global namespace
+	window.CBPFWTabs = CBPFWTabs;
+
+})( window );
+		</script>
+		<script>
+			new CBPFWTabs( document.getElementById( 'tabs' ) );
+		</script>
+	</body>
 </html>

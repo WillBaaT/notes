@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CHYLab - Experimental Note</title>
+	</head>
+	<body>
+		<div class="container">
+			<div id="tabs" class="tabs">
+				<header class="clearfix">
+					<h1 class="title-current"><span>Fragment</span> Cloning</h1>
+				</header>
+				<%= form_for @gene, {:url => dashboard_genes_path, :method => "post"} do |gf| %>
+					<%= render :partial => 'geneform', :locals => { :gf => gf } %>
+					<%= render :partial => 'genepcrform', :locals => { :gf => gf } %>
+					<div class="pcrsubmit">
+					<%= gf.submit "Submit", :class => "submit" %>
+					</div>
+					
+					<% @gene.errors.full_messages.each do |err| %>
+						<ul id="erralert" style="list-style-type:disc"><li class="err"><%=err%></li></ul>
+					<%end%>
+					
+					
+				<%end%>
+			</div>
+		</div>
+	</body>
+	<style>
+	@media screen and (max-width: 32em) {
+	h1 span{
+	display: none;
+	}
+	</style>
+	<script>
+	$(document).ready(function(){
+		$("carname").focus();
+      $("#err_check_btn").click(function(){
+        $("#erralert:after").css("display","none");
+        $("#errmask").css("display","block");
+      });
+    }); 
+	</script>
+</html>

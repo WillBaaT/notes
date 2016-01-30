@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js">
+  </script>
+
+</head>
+<body>
+<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+					<header id="header">
+						<h1>Electronic Note</h1>
+						<p>Molecular Cloning&nbsp;&bull;&nbsp; Plant Growing &nbsp;&bull;&nbsp; Concentration Caculator</p>
+						<div class="btns">
+					      <%=link_to "molecular" do%>
+					      <div class="circle-btn">
+					        <svg height="70" width="70" >
+					          <circle cx="35" cy="35" r="30" stroke="white" stroke-width="1" fill="none"/>
+					        </svg>
+					        <div class="circle-btn-text">
+					        M
+					        </div>
+					      </div>
+					      <%end%>
+					      <%=link_to "plant" do%>
+					      <div class="circle-btn">
+					        <svg height="70" width="70" >
+					      	  <circle cx="35" cy="35" r="30" stroke="white" stroke-width="1" fill="none"/>
+					        </svg>
+					        <div class="circle-btn-text">
+					        P
+					        </div>
+					      </div>
+					      <%end%>
+					      <%=link_to "caculator" do%>
+					      <div class="circle-btn">
+					        <svg height="70" width="70" >
+					      	  <circle cx="35" cy="35" r="30" stroke="white" stroke-width="1" fill="none"/>
+					        </svg>
+					        <div class="circle-btn-text">
+					        C
+					        </div>
+					      </div>
+					      <%end%>
+					      <%=link_to new_geek_session_path do%>
+					      <div class="circle-btn">
+					        <svg height="70" width="70" >
+					      	  <circle cx="35" cy="35" r="30" stroke="white" stroke-width="1" fill="none"/>
+					        </svg>
+					        <div class="circle-btn-text">
+					        L
+					        </div>
+					      </div>
+					      <%end%>
+					    </div>
+					</header>
+					<footer id="footer">
+						<span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+					</footer>
+
+			</div>
+		</div>
+		<script>
+			window.onload = function() { document.body.className = ''; }
+			window.ontouchmove = function() { return false; }
+			window.onorientationchange = function() { document.body.scrollTop = 0; }
+		</script>
+<%= yield %>
+
+</body>
+</html>

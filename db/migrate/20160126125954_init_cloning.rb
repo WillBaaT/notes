@@ -10,8 +10,8 @@ class InitCloning < ActiveRecord::Migration
     end
     create_table :pcrs do |t|
       t.integer :gene_id, :null => false
-      t.integer :forprimer_id, :null => false
-      t.integer :revprimer_id, :null => false
+      t.integer :forprimer_id 
+      t.integer :revprimer_id
       t.string :fragment_name
       t.string :product_size
       t.string :final_vector

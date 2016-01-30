@@ -1,0 +1,2 @@
+class ForPrimer < Primer
+end

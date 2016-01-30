@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		
+</head>
+<body>
+	<div class="container">
+		<div id="tabs" class="tabs">
+			<header class="clearfix">
+				<h1 class="title-current">PCR products</h1>
+			</header>
+			<div class="content">
+			<% @gene.each do |g| %>
+				<div class="gene">
+					<h2><%= g.gene_name %> >
+					<%= link_to  dashboard_gene_path(g) do%>
+					<span class="genedetail">Details</span>
+					<%end%>
+					<%= link_to  new_dashboard_gene_pcr_path(g) do%>
+					<span class="genenew">New</span>
+					<%end%>
+					</h2>
+					<% g.pcr.each do |p| %>
+					<div class="pcrs">
+						<div class="pcr">
+						<span class="label">Fragment:	</span><span><%=p.fragment_name%></span><br>
+						<span class="label">Size:		</span><span><%=p.product_size%><%=" bp" unless p.product_size.nil?%></span><br>
+						<span class="label">Final vector:</span><span><%=p.final_vector%></span><br><br><br>
+						<span class="time"><%=p.created_at.strftime("%H:%M %D")%></span>
+						</div>
+						<div class="edit">
+						<%= link_to "DETAIL", dashboard_gene_pcr_path(p.gene, p)%>
+						<%= link_to "DELETE", dashboard_gene_pcr_path(p.gene, p), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+						<br><br>	<br><br>
+						</div>
+					</div>
+				<%end%>
+				</div>
+			</div>
+			<%end%>
+			<%= link_to "BACK", molecular_path, :class=>"back"%>
+		</div>
+	</div>
+</body>
+
+</html>

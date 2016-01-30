@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CHYLab - Experimental Note</title>
+	</head>
+	<body>
+		<div class="container">
+			<div id="tabs" class="tabs">
+				<header class="clearfix">
+					<h1 class="title-current">Fragment Cloning</h1>
+				</header>
+				<%= form_for @gene, :url => dashboard_gene_path, :method => "patch" do |gf| %>
+					<div class="show">
+					<h2>About the Gene</h2><br>
+							<%= gf.label :species %>
+							<%= gf.text_field :species, :placeholder => "?" %><br><br>
+							<%= gf.label :number,"Gene Name" %>
+							<%= gf.text_field :number, :class=>"genename" %><br><br><br>
+							<%= gf.label :size %>
+							<%= gf.text_field :size, :placeholder => "1000" %><br><br>
+							<%= gf.label :sequence %>
+							<%= gf.text_area :sequence, :class=>"genesequence"%><br><br>
+
+					</div>
+					<%= gf.submit "Submit", :class => "submit" %>
+					<% @gene.errors.full_messages.each do |err| %>
+						<ul id="erralert" style="list-style-type:disc"><li class="err"><%=err%></li></ul>
+					<%end%>
+					
+					
+				<%end%>
+			</div>
+		</div>
+	</body>
+	<style>
+	
+	</style>
+	<script>
+	$(document).ready(function(){
+		$("carname").focus();
+      $("#err_check_btn").click(function(){
+        $("#erralert:after").css("display","none");
+        $("#errmask").css("display","block");
+      });
+    }); 
+	</script>
+</html>

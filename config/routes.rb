@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get "molecular" => "statics#molecular" 
   get "plant" => "statics#plant" 
   get "caculator" => "statics#caculator" 
-  resources :genes do
-    resources :pcrs
-  end
   
   namespace :dashboard do
     resources :posts

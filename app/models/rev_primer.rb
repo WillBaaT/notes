@@ -1,0 +1,2 @@
+class RevPrimer < Primer
+end

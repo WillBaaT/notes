@@ -100,8 +100,8 @@ ActiveRecord::Schema.define(version: 20160127153822) do
 
   create_table "pcrs", force: :cascade do |t|
     t.integer  "gene_id",          limit: 4,   null: false
-    t.integer  "forprimer_id",     limit: 4,   null: false
-    t.integer  "revprimer_id",     limit: 4,   null: false
+    t.integer  "forprimer_id",     limit: 4
+    t.integer  "revprimer_id",     limit: 4
     t.string   "fragment_name",    limit: 255
     t.string   "product_size",     limit: 255
     t.string   "final_vector",     limit: 255
