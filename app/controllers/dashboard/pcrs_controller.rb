@@ -27,6 +27,12 @@ class Dashboard::PcrsController < Dashboard::DashboardController
   end
   def edit
     @pcr = Pcr.find(params[:id])
+    unless @pcr.for_primer
+      @pcr.build_for_primer
+    end
+    unless @pcr.rev_primer
+      @pcr.build_rev_primer
+    end
   end
   
   def update
@@ -45,7 +51,7 @@ class Dashboard::PcrsController < Dashboard::DashboardController
       :final_vector,
       :machine,
       :enzyme,
-      :pcr_condition_attributes => [
+      :pcrcondition_attributes => [
         :usable_id,
         :usable_type,
         :machine,

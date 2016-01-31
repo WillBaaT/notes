@@ -8,9 +8,7 @@
     <%= fpm.label :for_sequence, "Sequence" %>
     <%= fpm.text_field :for_sequence, :id => "forseq" %><br><br>
     <%= fpm.label :for_restrict_site, "R.E. site" %>
-    <%=@pcr.for_primer.for_sequence%>
-    <%re=123%>
-    <%= fpm.text_field :for_restrict_site, :value=>re, :id => "forre" %><br><br>
+    <%= fpm.text_field :for_restrict_site, :id => "forre" %><br><br>
   <%end%>
   <%= pf.fields_for :rev_primer do |rpm|%>
     <%= rpm.label :rev_primer_label, "Reverse" %>
