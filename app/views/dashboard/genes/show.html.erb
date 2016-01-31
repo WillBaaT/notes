@@ -18,12 +18,12 @@
 			<span  class="label">Size: <span><%=@gene.size%><%= " bp " unless @gene.size.nil? %></span></span><br>
 		  </div>
 		  <div>
-			<% if @gene.sequence %>
+			<% unless @gene.sequence.blank? %>
 			  <% @gene.sequence.sub("\n\r","")%>
 			  <% a = @gene.sequence.gsub(/\s+/,'')%>
 			  <svg width="300" height="50">
 			  <line x1="0" y1="10" x2="300" y2="10" style="stroke:#599ab9;stroke-width:5" />
-			  <%= b = a.scan(/[a-z][A-Z]+/)%>
+			  <%= b = a.scan(/[A-Z]+/)%>
 			  <% b.each do |e|%>
 			    <% ex = a.index(e) %>
 			    <% b[0]%>
@@ -31,7 +31,7 @@
 		      <%end%>
 			  </svg>
 			<%else%>
-			  <span>If you give me the sequence, I'll show you the graphic</span>
+			  <span>If you give me the sequence, I'll show you the graphic.</span>
 			<%end%>
 		  </div>
 		  <div class="edit">
@@ -40,7 +40,6 @@
 		  </div>
 		</div>
 	  </div>
-	  <p><%= link_to 'Back to index', dashboard_genes_path %></p>
 	</div>
   </div>
 </body>

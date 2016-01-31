@@ -33,14 +33,47 @@
 	
 	</style>
 	<script>
-	$(document).ready(function(){
-		$("carname").focus();
-      $("#err_check_btn").click(function(){
-        $("#erralert:after").css("display","none");
-        $("#errmask").css("display","block");
-      });
-    }); 
+	var forseq = $("#forseq").val().toUpperCase();
+	var revseq = $("#revseq").val().toUpperCase();
+	function check(site){
+	  var enzymes= ["CTGCAG", "GAATTC", "GGATCC", "TCTAGA", "AAGCTT"];
+	  var i = 0;
 
-    
+	  while (enzymes[i]) {
+        if(site.match(enzymes[i])){
+          var enz = enzymes[i];
+        }
+        i++;
+      }
+
+      switch(enz){
+        case "CTGCAG":
+          return "PstI";
+          break;
+        case "GAATTC":
+          return "EcoRI";
+          break;
+        case "GGATCC":
+          return "BamHI";
+          break;
+        case "TCTAGA":
+          return "XbaI";
+          break;
+        case "AAGCTT":
+          return "HindIII";
+          break;
+      }
+    }
+
+	$(document).ready(function(){
+      $("#forseq").blur(function(){
+        $("#forre").val(check(forseq));
+      });
+      $("#revseq").blur(function(){
+        $("#revre").val(check(revseq));
+      });
+    });
+
+
 	</script>
 </html>
