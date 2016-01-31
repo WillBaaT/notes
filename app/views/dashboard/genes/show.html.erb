@@ -15,7 +15,7 @@
 		  <div class="genedetail">
 			<span class="label">Species:</span><span> <%=@gene.species%></span><br>
 			<span  class="label">ID:</span><span> <%=@gene.number%></span><br>
-			<span  class="label">Size: <span><%=@gene.size%><%= " bp " unless @gene.size.nil? %></span></span><br>
+			<span  class="label">Size: <span><%=@gene.size%><%= " bp " unless @gene.size.blank? %></span></span><br>
 		  </div>
 		  <div>
 			<% unless @gene.sequence.blank? %>
