@@ -29,6 +29,7 @@
 			<span class="label">Final vector: </span><span><%=@pcr.final_vector%></span><br><br>
 			
 			<% unless @pcr.gene.sequence.blank? %>
+			<% if @pcr.gene.sequence %>
 			  <% a = @pcr.gene.sequence.gsub(/\s+/,'')%>
 			  <% r = 300 / a.length.to_f %>
 			  <% exon = a.scan(/[A-Z]+/)%>
