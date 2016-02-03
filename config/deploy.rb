@@ -1,7 +1,6 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-`ssh-add`
 set :application, 'notes'
 
 # Default branch is :master
