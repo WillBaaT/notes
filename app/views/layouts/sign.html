@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+<%= link_to "Log out", :url=>destroy_geek_session_path, :method=> :delete %>
+<hr>
+	<%= yield %>
+
+</body>
+</html>

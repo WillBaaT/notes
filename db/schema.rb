@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160127153822) do
+ActiveRecord::Schema.define(version: 20160131231235) do
 
   create_table "colonypcrs", force: :cascade do |t|
     t.integer "pcr_id",       limit: 4, null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160127153822) do
   create_table "geeks", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
     t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "ppp",                    limit: 255
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -121,6 +122,11 @@ ActiveRecord::Schema.define(version: 20160127153822) do
   create_table "posts", force: :cascade do |t|
     t.integer "geek_id", limit: 4
     t.text    "content", limit: 65535
+  end
+
+  create_table "ppps", force: :cascade do |t|
+    t.string "mail", limit: 255
+    t.string "ppp",  limit: 255
   end
 
   create_table "primer_pairs", force: :cascade do |t|

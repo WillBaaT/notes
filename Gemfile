@@ -20,6 +20,9 @@ gem 'rails-pry'
 gem 'devise'
 gem 'paperclip'
 
+gem 'capistrano-rails', :group => :development
+gem 'capistrano-passenger', :group => :development
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

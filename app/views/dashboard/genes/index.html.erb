@@ -31,6 +31,7 @@
 						<div class="edit">
 						<%= link_to "DETAIL", dashboard_pcr_path(p)%>
 						<%= link_to "DELETE", dashboard_gene_pcr_path(p.gene, p), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+						<%= link_to "LIGATION", new_dashboard_pcr_ligation_path(p) %>
 						<br><br>	<br><br>
 						</div>
 					</div>
